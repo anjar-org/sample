@@ -1,0 +1,15 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: |
+          shortSha=$(git rev-parse --short ${{ github.sha }})
+          echo $shortSha
